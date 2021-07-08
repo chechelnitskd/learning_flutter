@@ -58,12 +58,13 @@ class _MyHomePageState extends State<MyHomePage> {
       print("setstate called");
       if (tempStore == null) {
         // this below might have problems
-        _image = Image(image: AssetImage('assets/sadyeehaw.jpeg')) as File;
+        //_image = Image(image: AssetImage('assets/sadyeehaw.jpeg')) as File;
         return;
       } else {
         _isImageLoaded = true;
         _image = File(tempStore.path);
-        applyModelOnImage(_image!);
+        applyModelOnImage(File(tempStore.path));
+        //ideally, make this
       }
     });
   }
@@ -76,11 +77,11 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-/*  @override
+  @override
   void dispose() {
-    super.dispose();
     Tflite.close();
-  }*/
+    super.dispose();
+  }
 
   @override
   //reruns every time set state is called
