@@ -11,12 +11,17 @@ Trying to piece together:
 (to varying degrees of success)
 
 https://medium.com/fabcoding/adding-an-image-picker-in-a-flutter-app-pick-images-using-camera-and-gallery-photos-7f016365d856
-https://www.youtube.com/watch?v=JLhHxTDz7K8&t=1s
+Image classification: https://www.youtube.com/watch?v=JLhHxTDz7K8&t=1s
+Cat-dog tutorial: https://www.youtube.com/watch?v=-5kUv47xKy0
 
 ### Errors I had
 
 metal_delegate.h not found -- updating the Podfile.lock, along with following the tflite package set up instructions fixed it:
 https://pub.dev/packages/tflite
+
+ImagePicker just won't give me an image. Also, if I click on the gallery/select an image twice, it throws an error (connection, something about previous thing being interrupted, etc.)
+
+Apparently this might be a problem with M1 chip: https://github.com/flutter/flutter/issues/71943
 
 ## Getting Started
 
@@ -30,3 +35,13 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+### Other Resources/Sources Consulted
+https://stackoverflow.com/questions/64718180/saving-imagepicker-image-from-gallery-in-flutter
+https://androidride.com/image-picker-flutter-take-picture/
+https://dart.dev/codelabs/dart-cheatsheet
+https://www.youtube.com/watch?v=7iZAZ0CwFKI - Image Picker with Flutter
+
+### Future packages
+https://github.com/fluttercandies/flutter_wechat_assets_picker
+
