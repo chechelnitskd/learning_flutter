@@ -8,28 +8,6 @@ void main() {
   runApp(MaterialApp(home: MyHomePage()));
 }
 
-/*class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.green,
-      ),
-      home: MyHomePage(),
-    );
-  }
-}*/
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -39,11 +17,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   File? _image;
   List? _result;
-  bool isImageLoaded = false;
+  bool _isImageLoaded = false;
 
   String _confidence = "";
   String _name = "";
-  String numbers = "";
+  //String _numbers = "";
 
   final _picker = ImagePicker();
 
@@ -72,21 +50,18 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future getImageFromGallery() async {
-    //may need future b/c don't know if async finishes
-    // look into "printv" (printing for ui)
-    print("get image yay");
-    var tempStore = await _picker.getImage(source: ImageSource.gallery);
+    print("before await");
+    var tempStore = await ImagePicker().getImage(source: ImageSource.gallery);
+    print("after await");
 
     setState(() {
-      print("DID IT SET");
-      isImageLoaded = true;
-      print("is it: $isImageLoaded");
-      //_image = convertToFile(Image(image: AssetImage('assets/sadyeehaw.jpeg')));
+      _isImageLoaded = true;
+      print("in setstate");
       if (tempStore == null) {
         _image = Image(image: AssetImage('assets/sadyeehaw.jpeg')) as File;
         return;
       } else {
-        isImageLoaded = true;
+        _isImageLoaded = true;
         _image = File(tempStore.path);
       }
     });
@@ -107,13 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }*/
 
   @override
+  //reruns every time set state is called
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return MaterialApp(
         home: Scaffold(
           appBar: AppBar(
@@ -122,9 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              print("pressed woo");
               getImageFromGallery();
-              print("for funsies");
             },
             child: Icon(Icons.photo_album),
           ),
@@ -133,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               children: [
                 SizedBox(height: 80),
-                isImageLoaded
+                _isImageLoaded
                   ? Center(
                     child: Container(
                       height: 350,
@@ -148,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Image(image: AssetImage('assets/wahwah.jpeg'))
                   ),
                 Text("Name : $_name\n Confidence: $_confidence"),
-                Text("isImageLoaded: $isImageLoaded"),
+                Text("isImageLoaded: $_isImageLoaded"),
               ],
             ),
           ),
