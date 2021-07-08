@@ -55,9 +55,9 @@ class _MyHomePageState extends State<MyHomePage> {
     print("after await");
 
     setState(() {
-      //_isImageLoaded = true;
-      print("in setstate");
+      print("setstate called");
       if (tempStore == null) {
+        // this below might have problems
         _image = Image(image: AssetImage('assets/sadyeehaw.jpeg')) as File;
         return;
       } else {
