@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
     print("after await");
 
     setState(() {
-      _isImageLoaded = true;
+      //_isImageLoaded = true;
       print("in setstate");
       if (tempStore == null) {
         _image = Image(image: AssetImage('assets/sadyeehaw.jpeg')) as File;
@@ -112,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           fit: BoxFit.contain)),
                     ),
                 )
-                  : Center(
+                 : Center(
                     child: Image(image: AssetImage('assets/wahwah.jpeg'))
                   ),
                 Text("Name : $_name\n Confidence: $_confidence"),
