@@ -23,6 +23,10 @@ ImagePicker just won't give me an image. Also, if I click on the gallery/select 
 
 Apparently this might be a problem with M1 chip: https://github.com/flutter/flutter/issues/71943
 
+Notably, when running flutter run --verbose, got this error at the end:
+TimeoutException after 0:00:00.250000: Future not completed
+Which matches what I thought would be true since ImagePicker isn't giving me an image, and the print statement I had after the await isn't printing.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
