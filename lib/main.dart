@@ -72,11 +72,16 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future getImageFromGallery() async {
-    var tempStore = await _picker.getImage(source: ImageSource.gallery);
+    //may need future b/c don't know if async finishes
+    // look into "printv" (printing for ui)
+    print("get image yay");
+    //var tempStore = await _picker.getImage(source: ImageSource.gallery);
 
     setState(() {
+      print("DID IT SET");
       isImageLoaded = true;
-      _image = Image(image: AssetImage('assets/sadyeehaw.jpeg')) as File;
+      print("is it: $isImageLoaded");
+      _image = convertToFile(Image(image: AssetImage('assets/sadyeehaw.jpeg')));
       /*if (tempStore == null) {
         _image = Image(image: AssetImage('assets/sadyeehaw.jpeg')) as File;
         return;
@@ -111,42 +116,42 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return MaterialApp(
         home: Scaffold(
-        appBar: AppBar(
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
-          title: Text("Test"),
-        ),
-
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            getImageFromGallery();
-          },
-          child: Icon(Icons.photo_album),
-        ),
-
-        body: Container(
-          child: Column(
-            children: [
-              SizedBox(height: 80),
-              isImageLoaded
-                ? Center(
-                  child: Container(
-                    height: 350,
-                    width: 350,
-                    decoration: BoxDecoration(
-                      image:  DecorationImage(
-                        image: FileImage(File(_image!.path)),
-                        fit: BoxFit.contain)),
-                  ),
-              )
-                : Center(
-                  child: Image(image: AssetImage('assets/wahwah.jpeg'))
-                ),
-              Text("Name : $_name\n Confidence: $_confidence"),
-              Text("isImageLoaded: $isImageLoaded"),
-            ],
+          appBar: AppBar(
+            title: Text("Test"),
           ),
-        ),
+
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              print("pressed woo");
+              getImageFromGallery();
+              print("for funsies");
+            },
+            child: Icon(Icons.photo_album),
+          ),
+
+          body: Container(
+            child: Column(
+              children: [
+                SizedBox(height: 80),
+                isImageLoaded
+                  ? Center(
+                    child: Container(
+                      height: 350,
+                      width: 350,
+                      decoration: BoxDecoration(
+                        image:  DecorationImage(
+                          image: FileImage(File(_image!.path)),
+                          fit: BoxFit.contain)),
+                    ),
+                )
+                  : Center(
+                    child: Image(image: AssetImage('assets/wahwah.jpeg'))
+                  ),
+                Text("Name : $_name\n Confidence: $_confidence"),
+                Text("isImageLoaded: $isImageLoaded"),
+              ],
+            ),
+          ),
       )
     );
   }
