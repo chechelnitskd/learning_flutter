@@ -75,20 +75,20 @@ class _MyHomePageState extends State<MyHomePage> {
     //may need future b/c don't know if async finishes
     // look into "printv" (printing for ui)
     print("get image yay");
-    //var tempStore = await _picker.getImage(source: ImageSource.gallery);
+    var tempStore = await _picker.getImage(source: ImageSource.gallery);
 
     setState(() {
       print("DID IT SET");
       isImageLoaded = true;
       print("is it: $isImageLoaded");
-      _image = convertToFile(Image(image: AssetImage('assets/sadyeehaw.jpeg')));
-      /*if (tempStore == null) {
+      //_image = convertToFile(Image(image: AssetImage('assets/sadyeehaw.jpeg')));
+      if (tempStore == null) {
         _image = Image(image: AssetImage('assets/sadyeehaw.jpeg')) as File;
         return;
       } else {
         isImageLoaded = true;
         _image = File(tempStore.path);
-      }*/
+      }
     });
   }
 
