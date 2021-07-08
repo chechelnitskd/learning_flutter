@@ -17,7 +17,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   File? _image;
   List? _result;
-  bool _isImageLoaded = false;
+  bool _isImageLoaded = true;
 
   String _confidence = "";
   String _name = "";
@@ -63,6 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
       } else {
         _isImageLoaded = true;
         _image = File(tempStore.path);
+        applyModelOnImage(_image!);
       }
     });
   }
