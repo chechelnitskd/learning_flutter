@@ -53,15 +53,16 @@ class _MyHomePageState extends State<MyHomePage> {
     print("before await");
     var tempStore = await ImagePicker().getImage(source: ImageSource.gallery);
     print("after await");
-    if (tempStore == null) {
-      return null;
-    }
 
     setState(() {
-      _isImageLoaded = true;
-      _image = File(tempStore.path);
-      // why doesn't _image work instead of File(tempStore.path) below?
-      //applyModelOnImage();
+      if (tempStore == null) {
+        _image = Image(image: AssetImage('assets/sadyeehaw.jpeg')) as File;
+        return;
+      } else {
+        _isImageLoaded = true;
+        _image = File(tempStore.path);
+        //applyModelOnImage();
+      }
     });
   }
 
