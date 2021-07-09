@@ -10,7 +10,7 @@ Trying to piece together:
 ### tutorials I've tried following
 (to varying degrees of success)  
 
-https://medium.com/fabcoding/adding-an-image-picker-in-a-flutter-app-pick-images-using-camera-and-gallery-photos-7f016365d856 <br \>
+https://medium.com/fabcoding/adding-an-image-picker-in-a-flutter-app-pick-images-using-camera-and-gallery-photos-7f016365d856 <br />
 Run tfLite model (Coding Cafe): https://www.youtube.com/watch?v=GHpzS5NXJ-A  
 Image classification: https://www.youtube.com/watch?v=JLhHxTDz7K8&t=1s  
 Cat-dog tutorial: https://www.youtube.com/watch?v=-5kUv47xKy0  
