@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:tflite/tflite.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:meta/meta.dart';
 
 void main() {
   runApp(MaterialApp(home: MyHomePage()));
@@ -17,29 +16,28 @@ class _MyHomePageState extends State<MyHomePage> {
 
   File? _image;
   List? _result;
-  bool _isImageLoaded = true;
+  bool _isImageLoaded = false;
 
   String _confidence = "";
   String _name = "";
-  //String _numbers = "";
+  //String numbers = "";
 
   final _picker = ImagePicker();
 
   loadMyModel() async {
     await Tflite.loadModel(
-        model: "assets/model_unquant.tflite",
-        labels: "assets/labels.txt",
+      model: "assets/model_unquant.tflite",
+      labels: "assets/labels.txt",
     );
-    print("Loaded");
   }
 
   applyModelOnImage(File file) async {
     var res = await Tflite.runModelOnImage(
-      path: file.path,
-      numResults: 2,
-      threshold: 0.5,
-      imageMean: 127.5,
-      imageStd: 127.5
+        path: file.path,
+        numResults: 2,
+        threshold: 0.5,
+        imageMean: 127.5,
+        imageStd: 127.5
     );
 
     setState(() {
@@ -73,14 +71,13 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  /*@override
+  @override
   void dispose() {
     super.dispose();
     Tflite.close();
-  }*/
+  }
 
   @override
-  //reruns every time set state is called
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
@@ -100,25 +97,25 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 SizedBox(height: 80),
                 _isImageLoaded
-                  ? Center(
-                    child: Container(
-                      height: 350,
-                      width: 350,
-                      decoration: BoxDecoration(
+                    ? Center(
+                  child: Container(
+                    height: 350,
+                    width: 350,
+                    decoration: BoxDecoration(
                         image:  DecorationImage(
-                          image: FileImage(File(_image!.path)),
-                          fit: BoxFit.contain)),
-                    ),
-                )
-                 : Center(
-                    child: Image(image: AssetImage('assets/wahwah.jpeg'))
+                            image: FileImage(File(_image!.path)),
+                            fit: BoxFit.contain)),
                   ),
+                )
+                    : Center(
+                    child: Image(image: AssetImage('assets/wahwah.jpeg'))
+                ),
                 Text("Name : $_name\n Confidence: $_confidence"),
                 Text("isImageLoaded: $_isImageLoaded"),
               ],
             ),
           ),
-      )
+        )
     );
   }
 }
