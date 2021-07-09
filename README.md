@@ -8,12 +8,13 @@ Trying to piece together:
 - how to implement TensorFlowLite model into Flutter (so far haven't gotten here yet) -- how to use the tflite package
 
 ### tutorials I've tried following
-(to varying degrees of success)
+(to varying degrees of success)  
 
-https://medium.com/fabcoding/adding-an-image-picker-in-a-flutter-app-pick-images-using-camera-and-gallery-photos-7f016365d856
-Image classification: https://www.youtube.com/watch?v=JLhHxTDz7K8&t=1s
-Cat-dog tutorial: https://www.youtube.com/watch?v=-5kUv47xKy0
-https://medium.com/analytics-vidhya/run-cnn-model-in-flutter-10c944cadcba - running CNN model in flutter
+https://medium.com/fabcoding/adding-an-image-picker-in-a-flutter-app-pick-images-using-camera-and-gallery-photos-7f016365d856 <br \>
+Run tfLite model (Coding Cafe): https://www.youtube.com/watch?v=GHpzS5NXJ-A  
+Image classification: https://www.youtube.com/watch?v=JLhHxTDz7K8&t=1s  
+Cat-dog tutorial: https://www.youtube.com/watch?v=-5kUv47xKy0  
+Running CNN model in flutter: https://medium.com/analytics-vidhya/run-cnn-model-in-flutter-10c944cadcba  
 
 ### Errors I had
 
@@ -49,6 +50,7 @@ https://androidride.com/image-picker-flutter-take-picture/
 https://dart.dev/codelabs/dart-cheatsheet
 https://www.youtube.com/watch?v=7iZAZ0CwFKI - Image Picker with Flutter
 https://stackoverflow.com/questions/59558604/why-do-we-use-dispose-method-in-dart-code - dispose()
+https://stackoverflow.com/questions/62368886/how-to-convert-image-to-file-in-flutter - convert Image to File
 
 ### Future packages
 https://github.com/fluttercandies/flutter_wechat_assets_picker
