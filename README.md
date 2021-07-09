@@ -47,6 +47,7 @@ https://stackoverflow.com/questions/64718180/saving-imagepicker-image-from-galle
 https://androidride.com/image-picker-flutter-take-picture/
 https://dart.dev/codelabs/dart-cheatsheet
 https://www.youtube.com/watch?v=7iZAZ0CwFKI - Image Picker with Flutter
+https://stackoverflow.com/questions/59558604/why-do-we-use-dispose-method-in-dart-code - dispose()
 
 ### Future packages
 https://github.com/fluttercandies/flutter_wechat_assets_picker
