@@ -13,6 +13,7 @@ Trying to piece together:
 https://medium.com/fabcoding/adding-an-image-picker-in-a-flutter-app-pick-images-using-camera-and-gallery-photos-7f016365d856
 Image classification: https://www.youtube.com/watch?v=JLhHxTDz7K8&t=1s
 Cat-dog tutorial: https://www.youtube.com/watch?v=-5kUv47xKy0
+https://medium.com/analytics-vidhya/run-cnn-model-in-flutter-10c944cadcba - running CNN model in flutter
 
 ### Errors I had
 
