@@ -29,6 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
       model: "assets/model_unquant.tflite",
       labels: "assets/labels.txt",
     );
+    print("Loaded");
   }
 
   applyModelOnImage(File file) async {
@@ -55,10 +56,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
     setState(() {
       if (tempStore == null) {
+        print("no image loaded\nImage null? ${_image == null}");
         return;
       } else {
         _isImageLoaded = true;
         _image = File(tempStore.path);
+        print("Image null? ${_image == null}");
+        applyModelOnImage(_image!);
       }
     });
   }
