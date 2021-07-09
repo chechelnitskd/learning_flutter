@@ -30,6 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
         model: "assets/model_unquant.tflite",
         labels: "assets/labels.txt",
     );
+    print("Loaded");
   }
 
   applyModelOnImage(File file) async {
@@ -51,17 +52,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future getImageFromGallery() async {
     print("before await");
-    var tempStore = await ImagePicker().getImage(source: ImageSource.gallery);
+    var tempStore = await _picker.getImage(source: ImageSource.gallery);
     print("after await");
 
     setState(() {
       if (tempStore == null) {
-        _image = Image(image: AssetImage('assets/sadyeehaw.jpeg')) as File;
         return;
       } else {
         _isImageLoaded = true;
         _image = File(tempStore.path);
-        //applyModelOnImage();
       }
     });
   }
@@ -74,11 +73,11 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  @override
+  /*@override
   void dispose() {
-    Tflite.close();
     super.dispose();
-  }
+    Tflite.close();
+  }*/
 
   @override
   //reruns every time set state is called
