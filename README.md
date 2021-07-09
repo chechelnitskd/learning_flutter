@@ -18,17 +18,20 @@ Running CNN model in flutter: https://medium.com/analytics-vidhya/run-cnn-model-
 
 ### Errors I had
 
+07-07-21
 metal_delegate.h not found -- updating the Podfile.lock, along with following the tflite package set up instructions fixed it:
 https://pub.dev/packages/tflite
 
 ImagePicker just won't give me an image. Also, if I click on the gallery/select an image twice, it throws an error: PlatformException(multiple_request, Cancelled by a second request, null, null)
 
+07-08-21
 Apparently this might be a problem with M1 chip: https://github.com/flutter/flutter/issues/71943
 
 Notably, when running flutter run --verbose, got this error at the end:
 TimeoutException after 0:00:00.250000: Future not completed
 Which matches what I thought would be true since ImagePicker isn't giving me an image, and the print statement I had after the await isn't printing.
 
+07-09-21
 Interestingly, when I try to get an image and then click cancel, then the after await statement prints, so it seems to just be an issue with ImagePicker.
 
 ## Getting Started
